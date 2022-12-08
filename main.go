@@ -5,6 +5,7 @@ import (
 	"vexample/vetest"
 	"vexample/vfunc"
 	"vexample/vilse"
+	"vexample/vint"
 	"vexample/vmap"
 	"vexample/vstruct"
 )
@@ -22,6 +23,6 @@ func main() {
 	vstruct.Main2()
 	vstruct.Main3()
 	vstruct.Main4()
-	vint.vint
+	vint.Vin2()
 
 }
