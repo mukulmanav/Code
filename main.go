@@ -16,6 +16,20 @@ import (
 	"gorm.io/gorm"
 )
 
+type Employ struct {
+	gorm.Model
+	Name         string
+	Age          int
+	emp_phone_no int
+	emp_dept     string
+}
+
+type Dept struct {
+	gorm.Model
+	Dept_no   int
+	Dept_name string
+}
+
 type Person struct {
 	gorm.Model
 	Name string
@@ -97,4 +111,22 @@ func (p Person) Del(dsn string) {
 	db.Delete(&p)
 
 	fmt.Printf("%v(%v)", p.Name, p.Age)
+
+	// SELECT * FROM `Employ` left join Dept on Employ.emp_dept = Dept.Dept_name
+	db.Model(&Employ{}).Select("*").Joins("left join Dept on Employ.emp_dept = Dept.Dept_name").Scan(&Dept{})
+
+	rows, err := db.Table("Employ").Select("*").Joins("left join Dept on Employ.emp_dept = Dept.Dept_name").Rows()
+	for rows.Next() {
+
+	}
+
+	if err != nil {
+		panic(err.Error())
+	} else {
+		fmt.Println("no worries")
+	}
+	//db.Table("Employ").Select("*").Joins("left join Dept on Employ.emp_dept = Dept.Dept_name").Scan(&Dept{})
+
+	//db.Joins("JOIN emails ON emails.user_id = users.id AND emails.email = ?", "jinzhu@example.org").Joins("JOIN credit_cards ON credit_cards.user_id =users.id").Where("credit_cards.number = ?", "411111111111").Find(&user)
+
 }
