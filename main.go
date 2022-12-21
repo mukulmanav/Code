@@ -9,9 +9,11 @@ import (
 	"vexample/vmap"
 	"vexample/vstruct"
 
-	"gorm.io/driver/mysql"
-
 	_ "github.com/go-sql-driver/mysql"
+
+	Marsh "vexample/marsh"
+	Meth "vexample/meth"
+	"vexample/relation"
 
 	"gorm.io/gorm"
 )
@@ -55,13 +57,22 @@ func main() {
 	fmt.Println("hi")
 	dsn := "root:1234@tcp(127.0.0.1:3306)/ve?charset=utf8mb4&parseTime=True&loc=Local"
 
-	var p Person
-	p.Insert(dsn)
-	p.Update(dsn)
-	p.Del(dsn)
+	//var p Person
+	//p.Insert(dsn)
+	//p.Update(dsn)
+	//p.Del(dsn)
+
+	//fmt.Println("Method")
+	fmt.print(string(dsn))
+	Meth.Meth()
+	fmt.Println("Relation")
+	relation.Relation()
+	fmt.Println("Marshal")
+	Marsh.Marsh2()
 
 }
 
+/*
 // insert entries
 func (p Person) Insert(dsn string) {
 
@@ -130,3 +141,4 @@ func (p Person) Del(dsn string) {
 	//db.Joins("JOIN emails ON emails.user_id = users.id AND emails.email = ?", "jinzhu@example.org").Joins("JOIN credit_cards ON credit_cards.user_id =users.id").Where("credit_cards.number = ?", "411111111111").Find(&user)
 
 }
+*/
