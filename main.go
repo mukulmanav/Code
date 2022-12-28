@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"vexample/Try"
+	"vexample/lasagna"
 	"vexample/vetest"
 	"vexample/vfunc"
 	"vexample/vilse"
@@ -63,12 +65,14 @@ func main() {
 	//p.Del(dsn)
 
 	//fmt.Println("Method")
-	fmt.print(string(dsn))
+	fmt.Println(string(dsn))
 	Meth.Meth()
 	fmt.Println("Relation")
 	relation.Relation()
 	fmt.Println("Marshal")
 	Marsh.Marsh2()
+	Try.Try()
+	lasagna.Lasagna()
 
 }
 
