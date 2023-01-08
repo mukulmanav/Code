@@ -11,7 +11,7 @@ import (
 	"vexample/vmap"
 	"vexample/vstruct"
 
-	_ "github.com/go-sql-driver/mysql"
+	//_ "github.com/go-sql-driver/mysql"
 
 	Marsh "vexample/marsh"
 	Meth "vexample/meth"
@@ -75,74 +75,3 @@ func main() {
 	lasagna.Lasagna()
 
 }
-
-/*
-// insert entries
-func (p Person) Insert(dsn string) {
-
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	if err != nil {
-		panic(err.Error())
-	} else {
-		fmt.Println("no worries")
-	}
-
-	fmt.Println("successful")
-
-	db.Select(&Person{Name: "Mukul", Age: 21})
-
-}
-
-// update
-func (p Person) Update(dsn string) {
-
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-
-	if err != nil {
-		panic(err.Error())
-	} else {
-		fmt.Println("no worries")
-	}
-
-	p = Person{Name: "Mukul", Age: 21}
-	db.Model(&p).Update("Age", 22)
-	fmt.Printf("%v(%v)", p.Name, p.Age)
-}
-
-// delete(soft)
-func (p Person) Del(dsn string) {
-
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-
-	if err != nil {
-		panic(err.Error())
-	} else {
-		fmt.Println("no worries")
-	}
-	//delete(soft)
-	p = Person{}
-	db.Where(&Person{Age: 2}).First(&p)
-	fmt.Println("to be deleted", p.Name)
-	db.Delete(&p)
-
-	fmt.Printf("%v(%v)", p.Name, p.Age)
-
-	// SELECT * FROM `Employ` left join Dept on Employ.emp_dept = Dept.Dept_name
-	db.Model(&Employ{}).Select("*").Joins("left join Dept on Employ.emp_dept = Dept.Dept_name").Scan(&Dept{})
-
-	rows, err := db.Table("Employ").Select("*").Joins("left join Dept on Employ.emp_dept = Dept.Dept_name").Rows()
-	for rows.Next() {
-
-	}
-
-	if err != nil {
-		panic(err.Error())
-	} else {
-		fmt.Println("no worries")
-	}
-	//db.Table("Employ").Select("*").Joins("left join Dept on Employ.emp_dept = Dept.Dept_name").Scan(&Dept{})
-
-	//db.Joins("JOIN emails ON emails.user_id = users.id AND emails.email = ?", "jinzhu@example.org").Joins("JOIN credit_cards ON credit_cards.user_id =users.id").Where("credit_cards.number = ?", "411111111111").Find(&user)
-
-}
-*/
