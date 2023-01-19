@@ -15,6 +15,7 @@ import (
 
 	Marsh "vexample/marsh"
 	Meth "vexample/meth"
+	"vexample/mserv"
 	"vexample/relation"
 
 	"gorm.io/gorm"
@@ -73,5 +74,8 @@ func main() {
 	Marsh.Marsh2()
 	Try.Try()
 	lasagna.Lasagna()
+	fmt.Println("MUX")
+	mserv.Initialmigration()
+	mserv.Initializerouter()
 
 }
