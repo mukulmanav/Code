@@ -13,6 +13,7 @@ import (
 
 	//_ "github.com/go-sql-driver/mysql"
 
+	"vexample/extra"
 	Marsh "vexample/marsh"
 	Meth "vexample/meth"
 	"vexample/mserv"
@@ -77,5 +78,6 @@ func main() {
 	fmt.Println("MUX")
 	mserv.Initialmigration()
 	mserv.Initializerouter()
-
+	fmt.Println("IAM")
+	extra.Extra()
 }
