@@ -33,15 +33,17 @@ func operation(input string) string {
 
 // Usage:
 // set the following environment variables in the terminal
-
-// export AWS_ACCESS_KEY_ID=<<Your-api-access-key>>
-// export AWS_SECRET_ACCESS_KEY=<<your-secret-access-key>>
+/*
+setx AWS_ACCESS_KEY_ID AKIATJYBZ2APY64KZ6AN
+setx AWS_SECRET_ACCESS_KEY SsPkAyLTh2xvZozArGr6aHoA3fbUZa6KpAZGOI4j
+setx AWS_DEFAULT_REGION ap-south-1
+*/
 
 func Extra() {
 	//creating a session for asia-pacific(mumbai) region
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String("ap-south-1"),
-		Credentials: credentials.NewStaticCredentials("AKIATJYBZ2APY64KZ6AN", "SsPkAyLTh2xvZozArGr6aHoA3fbUZa6KpAZGOI4j", ""),
+		Credentials: credentials.NewStaticCredentials(os.Getenv("AWS_ACCESS_KEY_ID"), os.Getenv("AWS_SECRET_ACCESS_KEY"), "")
 	},
 	)
 
@@ -130,6 +132,8 @@ func Extra() {
 	}
 
 }
+
+
 
 /*  running commands
 go run main.go createUser <username>
